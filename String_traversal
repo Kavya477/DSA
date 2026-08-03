@@ -1,0 +1,21 @@
+s = "jgdg85jhv6475jhv787"
+numbers = []
+temp = ""
+#Extracting numeric substrings
+for ch in s:
+    if ch.isdigit():
+        temp += ch
+    else:
+        if temp:
+            numbers.append(temp)
+            temp = ""
+if temp:
+    numbers.append(temp)
+#Count adjacent digits
+count = 0
+for i in range(len(numbers) - 1):
+    last_digit = int(numbers[i][-1])
+    first_digit = int(numbers[i + 1][0])
+    if abs(last_digit - first_digit) == 1:
+        count += 1
+print(count)
