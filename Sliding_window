@@ -1,0 +1,21 @@
+#Given a string S, process it in increasing levels. 
+#Level 1 consumes the next 1 character, 
+#Level 2 consumes the next 2 characters, 
+#Level 3 consumes the next 3 characters, and so on. 
+#A level is valid if all characters in that segment are identical (homogeneous). 
+#Return the number of valid levels. 
+#Stop if there are not enough characters remaining for the next level or if a level is not homogeneous.
+s = "aaabbbccc"
+level = 1
+index = 0
+ans = 0
+while index + level <= len(s):
+    part = s[index:index + level]
+    # Check if all characters are the same
+    if len(set(part)) == 1:
+        ans += 1
+    else:
+        break
+    index += level
+    level += 1
+print(ans)
